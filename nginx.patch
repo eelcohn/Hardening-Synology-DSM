@@ -1,0 +1,18 @@
+--- nginx.mustache	2018-01-26 01:02:27.000000000 +0100
++++ nginx.mustache	2018-09-22 11:51:41.149389538 +0200
+@@ -51,12 +51,15 @@
+     ssl_protocols             {{SSLProfile.protocols}};
+     ssl_ciphers               {{SSLProfile.ciphersuite}};
+     ssl_dhparam               {{SSLProfile.dhparam}};
++    ssl_ecdh_curve            secp521r1:brainpoolP512r1:secp384r1:brainpoolP384r1;
+     ssl_prefer_server_ciphers on;
+ 
+     ssl_session_tickets       off;
+     ssl_session_cache         shared:SSL:1m;
+     ssl_session_timeout       3600s;
+ 
++    {{> /usr/syno/share/nginx/OCSPStapling}}
++
+     server_tag     {{#DSM.server_tag}}"{{.}}"{{/DSM.server_tag}}{{^DSM.server_tag}}off{{/DSM.server_tag}};
+ 
+     {{> /usr/syno/share/nginx/gzip}}
