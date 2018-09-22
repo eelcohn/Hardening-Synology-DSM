@@ -1,0 +1,20 @@
+--- sshd_config	2017-04-17 09:37:23.121802858 +0200
++++ sshd_config	2018-09-22 11:54:57.924432926 +0200
+@@ -19,7 +19,7 @@
+ #ListenAddress ::
+ 
+ # The default requires explicit activation of protocol 1
+-#Protocol 2
++Protocol 2
+ 
+ # HostKey for protocol version 1
+ #HostKey /etc/ssh/ssh_host_key
+@@ -44,7 +44,7 @@
+ # Authentication:
+ 
+ #LoginGraceTime 2m
+-#PermitRootLogin yes
++PermitRootLogin no
+ #StrictModes yes
+ #MaxAuthTries 6
+ #MaxSessions 10
