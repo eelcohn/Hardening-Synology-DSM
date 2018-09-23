@@ -1,0 +1,11 @@
+--- nginx.conf	2018-09-23 22:39:56.283514494 +0200
++++ nginx.conf	2018-09-23 22:39:32.924099857 +0200
+@@ -46,7 +46,7 @@
+ 	/usr/syno/bin/mkcert > /dev/null 2>&1
+ 	/usr/syno/bin/cgi-keygen > /dev/null 2>&1 &
+ 
+-	for numbits in 4096 2048 1024; do
++	for numbits in 2048 1024; do
+ 		pem="/usr/syno/etc/ssl/dh${numbits}.pem"
+ 		pem_default="/usr/syno/etc.defaults/ssl/dh${numbits}.pem"
+ 
