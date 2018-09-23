@@ -1,0 +1,37 @@
+--- /usr/syno/bin/mkcert	2018-01-26 01:00:11.000000000 +0100
++++ /usr/syno/bin/mkcert	2018-09-23 19:43:29.958439898 +0200
+@@ -20,7 +20,7 @@
+ CRTINTERDIR="$SSLDIR/ssl.intercrt"
+ CRTCHAINDIR="$SSLDIR/ssl.chain.crt"
+ 
+-numbits="2048"
++numbits="4096"
+ days="7200"
+ subject="/C=TW/L=Taipei/O=Synology Inc."
+ 
+@@ -132,7 +132,7 @@
+ 		isValidCA=$?
+ 
+ 		if [ $isValidCA -ne 0 ]; then
+-			$OPENSSL req -x509 -new -sha256 \
++			$OPENSSL req -x509 -new -sha512 \
+ 				-newkey rsa:$numbits -nodes \
+ 				-subj "$subject/CN=Synology Inc. CA" \
+ 				-days $days \
+@@ -140,14 +140,14 @@
+ 				-out "$1/$synocacrt"
+ 		fi
+ 
+-		$OPENSSL req -new -sha256 \
++		$OPENSSL req -new -sha512 \
+ 			-newkey rsa:$numbits -nodes \
+ 			-rand "$RANDFILE" \
+ 			-subj "$subject/CN=synology.com" \
+ 			-keyout "$1/$key" \
+ 			-out $server_csr
+ 
+-		$OPENSSL x509 -req -sha256 \
++		$OPENSSL x509 -req -sha512 \
+ 			-in $server_csr \
+ 			-CA "$1/$synocacrt" \
+ 			-CAkey "$1/$synocakey" \
