@@ -1,0 +1,9 @@
+--- ca.cfg	2017-04-21 16:06:05.614192525 +0200
++++ ca.cfg	2018-09-23 22:46:01.194371120 +0200
+@@ -1,5 +1,5 @@
+ [ req ]
+-default_bits                    = 1024
++default_bits                    = 4096
+ distinguished_name              = req_DN
+ prompt                          = no
+ [ req_DN ]
