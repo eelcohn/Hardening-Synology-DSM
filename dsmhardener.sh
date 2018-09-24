@@ -14,8 +14,30 @@ patch /etc.defaults/ssl/openssl.cnf < openssl.cnf.patch
 patch /usr/syno/share/nginx/nginx.mustache < nginx.mustache.patch
 cp OCSPStapling /usr/syno/share/nginx/
 /usr/syno/bin/mkdhparam 4096
-synoservice --stop pkgctl-Apache2.2
-synoservice --stop pkgctl-Apache2.4
-synoservice --restart pkgctl-WebStation
-synoservice --start pkgctl-Apache2.2
-synoservice --start pkgctl-Apache2.4
+
+# If the Apache2.2 package is installed, stop it
+if [ synoservicecfg --status pkgctl-Apache2.2 -eq 0 ] 
+  synoservice --stop pkgctl-Apache2.2
+fi
+
+# If the Apache2.4 package is installed, stop it
+if [ synoservicecfg --status pkgctl-Apache2.4 -eq 0 ] 
+  synoservice --stop pkgctl-Apache2.4
+fi
+
+# If the WebStation package is installed, stop it
+if [ synoservicecfg --status pkgctl-WebStation -ne 255 ] 
+  synoservice --restart pkgctl-WebStation
+else
+  synoservice --restart nginx
+fi
+
+# If the Apache2.2 package is installed, stop it
+if [ synoservicecfg --status pkgctl-Apache2.4 -eq 3 ] 
+  synoservice --start pkgctl-Apache2.2
+fi
+
+# If the Apache2.4 package is installed, stop it
+if [ synoservicecfg --status pkgctl-Apache2.4 -eq 3 ] 
+  synoservice --start pkgctl-Apache2.4
+fi
