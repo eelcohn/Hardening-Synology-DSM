@@ -28,7 +28,7 @@ DSM does not support OCSP stapling by default. The following patch files will en
 ```
 OCSPStaple.mustache
 ca.crt.cfg.patch
-nginx.patch
+nginx.mustache.patch
 server.crt.cfg.patch
 ```
 
