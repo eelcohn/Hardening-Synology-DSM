@@ -3,7 +3,10 @@
 A collection of patches for hardening Synology DSM.
 
 These patches come with ABSOLUTELY NO WARRANTY WHATSOEVER! Incorrect usage may result in a broken disk station! Don't say I didn't warn you :-)
-That said, you can use these patches to harden DSM6.1
+
+That said, you can use these patches to harden Synology DSM.
+
+I've tested the scripts on DSM versions 6.1, 6.2, 6.2.1 and 6.2.2, but results may vary.
 
 ## Hardening sshd
 
