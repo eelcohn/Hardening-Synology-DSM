@@ -34,7 +34,7 @@ else
 fi
 
 # If the Apache2.2 package is installed, start it
-if [ synoservicecfg --status pkgctl-Apache2.4 -eq 3 ] 
+if [ synoservicecfg --status pkgctl-Apache2.2 -eq 3 ] 
   synoservice --start pkgctl-Apache2.2
 fi
 
