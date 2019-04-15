@@ -1,11 +1,11 @@
 --- mkdhparam	2018-09-23 19:48:10.521474319 +0200
-+++ mkdhparam.bak	2018-09-23 19:47:57.501797625 +0200
++++ mkdhparam	2018-09-23 19:47:57.501797625 +0200
 @@ -11,7 +11,7 @@
      exit
  fi
  
--numbits=${1:-4096}
-+numbits=${1:-2048}
+-numbits=${1:-2048}
++numbits=${1:-4096}
  
  OPENSSL="/usr/bin/openssl"
  DIR="/usr/syno/etc/ssl"
