@@ -25,19 +25,19 @@ if [ synoservicecfg --status pkgctl-Apache2.4 -eq 0 ]
   synoservice --stop pkgctl-Apache2.4
 fi
 
-# If the WebStation package is installed, stop it
+# If the WebStation package is installed, restart it
 if [ synoservicecfg --status pkgctl-WebStation -ne 255 ] 
   synoservice --restart pkgctl-WebStation
 else
   synoservice --restart nginx
 fi
 
-# If the Apache2.2 package is installed, stop it
+# If the Apache2.2 package is installed, start it
 if [ synoservicecfg --status pkgctl-Apache2.4 -eq 3 ] 
   synoservice --start pkgctl-Apache2.2
 fi
 
-# If the Apache2.4 package is installed, stop it
+# If the Apache2.4 package is installed, start it
 if [ synoservicecfg --status pkgctl-Apache2.4 -eq 3 ] 
   synoservice --start pkgctl-Apache2.4
 fi
