@@ -1,4 +1,5 @@
 #/bin/sh
+patch /etc/ssh/sshd_config < sshd_config.patch
 patch /usr/share/init/nginx.conf < nginx.conf.patch
 patch /usr/share/init/mkdhparam.conf < mkdhparam.conf.patch
 patch /usr/syno/bin/mkcert < mkcert.patch
